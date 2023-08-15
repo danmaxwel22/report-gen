@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GCB Report Generator</title>
+
+    <!-- css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="libraries/css/main.css">
+
+    <!-- js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="libraries/js/main.js" defer></script>
+
+</head>
+<body class="dark--theme">
+  <div class="video-container">
+    <iframe src="https://www.youtube.com/embed/lrf-GAYUOkQ? &controls=0&autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+    <!-- toast -->
+    <div aria-live="polite" aria-atomic="true">
+
+      <div class="toast-container me-5 position-absolute p-3 bottom-0 end-0">
+
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header text-white">  
+            <strong class="me-auto">NOTIFICATION</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body bg-white">
+
+            <div class="toast-item mb-4">
+              <p>&#x2609; Download <a target="_blank" href="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwjo9u30rLH3AhXa5HcKHb4qDlAYABABGgJlZg&ei=tLJnYsr7Mfai1sQPkLqVsA8&ohost=www.google.com&cid=CAESauD2_f8CA4UsXgb43FpFlnGmDbDA85jFFXemnToj2I2hQKOJXIDtHHA0cYyMd2XJ_rmYYr2uVlXDZfqfSU-gkfQy34h-20HypSlU0gNO3mzi4GIQVMmndXrFPsbnMr9Nv-ddjOVPo_ZyIm0&sig=AOD64_0ETiVQ7nl58syQlolnEa3rD6NVTw&sqi=2&ved=2ahUKEwjKpd70rLH3AhV2kZUCHRBdBfYQqyQoAHoECAIQBQ&adurl=">Grammarly Desktop App</a> for writing suggestions! </p>
+              <div class="screenshot">
+                <a target="_blank" href="assets/images/img/ss-grammarly.png">
+                  <img src="assets/images/img/ss-grammarly.png" alt="screenshot-1" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header text-white">  
+            <strong class="me-auto">NOTIFICATION</strong>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <div class="toast-body bg-white">
+
+            <div class="toast-item">
+              <p>&#x2609; Added Local Storage Functionality as temporary Database </p>
+              <div class="screenshot">
+                <a target="_blank" href="assets/images/img/ss-local-storage.png">
+                  <img src="assets/images/img/ss-local-storage.png" alt="screenshot-1" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--  modal -->
+    <div class="modal fade dark--theme" id="settingsTabNav" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="settingsTabNavLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div>
+            <div class="modal-header">
+              <h5 class="modal-title" id="settingsTabNavLabel"><i class="fas fa-sliders-h fa-lg pe-2"></i>Settings & Configurations</h5>
+              <button type="button" class="btn ms-3 text-uppercase shadow-none close-save" id="save--settings" data-bs-dismiss="modal" aria-label="Close">Save & Close</button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex align-items-start">
+                <div class="nav flex-column nav-pills me-3" id="v-pills-tab-cog" role="tablist" aria-orientation="vertical">
+                  <button class="nav-link active" id="v-general-tab-tab" data-bs-toggle="pill" data-bs-target="#v-general-tab" type="button" role="tab" aria-controls="v-general-tab" aria-selected="true">General</button>
+                  <button class="nav-link" id="v-customization-tab-tab" data-bs-toggle="pill" data-bs-target="#v-customization-tab" type="button" role="tab" aria-controls="v-customization-tab" aria-selected="false">Customization</button>
+                  <button class="nav-link" id="v-coming-soon-tab" data-bs-toggle="pill" data-bs-target="#v-coming-soon" type="button" role="tab" aria-controls="v-coming-soon" aria-selected="false">Custom Template</button>
+                </div>
+                <div class="tab-content w-100 px-5" id="v-pills-tabContent">
+                  <div class="tab-pane fade show active" id="v-general-tab" role="tabpanel" aria-labelledby="v-general-tab-tab">
+                    <div class="d-flex justify-content-end text-right">
+                      <button class="shadow-none border-none" id="darkmode-switcher">
+                        <img src="assets/images/img/darkmode.png" width="60" alt="dawn" />
+                      </button>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="v-customization-tab" role="tabpanel" aria-labelledby="v-customization-tab-tab">
+                    <ul class="nav nav-pills mb-3" id="vct" role="tablist">
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="vct-custom-fields-tab" data-bs-toggle="pill" data-bs-target="#vct-custom-fields" type="button" role="tab" aria-controls="vct-custom-fields" aria-selected="true">Fields</button>
+                      </li>
+                      <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="vct-custom-tab" data-bs-toggle="pill" data-bs-target="#vct-custom" type="button" role="tab" aria-controls="vct-custom" aria-selected="false">Custom</button>
+                      </li>
+                    </ul>
+                    <div class="tab-content" id="vctContent">
+                      <div class="tab-pane fade show active" id="vct-custom-fields" role="tabpanel" aria-labelledby="vct-custom-fields-tab">
+                        <div class="row" id="gc-settings-fields">
+                          <div class="col-6 mb-3">
+                            <div class="settings--item p-3" id="cb-updates">
+                              <p class="mb-2"><label class="label">Updates</label></p>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input shadow-none rearm-field" type="checkbox" id="updates-1">
+                                <label class="form-check-label" for="updates-1">Hide Field</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input shadow-none rearm-label" type="checkbox" id="updates-2">
+                                <label class="form-check-label" for="updates-2">Hide Label</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input shadow-none customization-label" type="checkbox" id="c-updates">
+                                <label class="form-check-label" for="c-updates">Custom Label</label>
+                              </div>
+                              <input type="text" class="shadow-none mt-2 custom-text w-100" placeholder="Enter Custom Label" />
+                            </div>
+                          </div>
+                          <div class="col-6 mb-3">
+                            <div class="settings--item p-3" id="cb-updated-links">
+                              <p class="mb-2"><label class="label">Updated Links</label></p>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input shadow-none rearm-field" type="checkbox" id="updated-links-1">
+                                <label class="form-check-label" for="updated-links-1">Hide Field</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input shadow-none rearm-label" type="checkbox" id="updated-links-2">
+                                <label class="form-check-label" for="updated-links-2">Hide Label</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input shadow-none customization-label" type="checkbox" id="c-updated-links">
+                                <label class="form-check-label" for="c-updated-links">Custom Label</label>
+                              </div>
+                              <input type="text" class="shadow-none mt-2 custom-text w-100" placeholder="Enter Custom Label" />
+                            </div>
+                          </div>
+                          <div class="col-6 mb-3">
+                            <div class="settings--item p-3" id="cb-note">
+                              <p class="mb-2"><label class="label">Note</label></p>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input shadow-none rearm-field" type="checkbox" id="note-1">
+                                <label class="form-check-label" for="note-1">Hide Field</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input shadow-none rearm-label" type="checkbox" id="note-2">
+                                <label class="form-check-label" for="note-2">Hide Label</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input shadow-none customization-label" type="checkbox" id="c-note">
+                                <label class="form-check-label" for="c-note">Custom Label</label>
+                              </div>
+                              <input type="text" class="shadow-none mt-2 custom-text w-100" placeholder="Enter Custom Label" />
+                            </div>
+                          </div>
+                          <div class="col-6 mb-3">
+                            <div class="settings--item p-3" id="cb-reference-link">
+                              <p class="mb-2"><label class="label">Reference Link</label></p>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input shadow-none rearm-field" type="checkbox" id="reference-link-1">
+                                <label class="form-check-label" for="reference-link-1">Hide Field</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input shadow-none rearm-label" type="checkbox" id="reference-link-2">
+                                <label class="form-check-label" for="reference-link-2">Hide Label</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input shadow-none customization-label" type="checkbox" id="c-reference-link">
+                                <label class="form-check-label" for="c-reference-link">Custom Label</label>
+                              </div>
+                              <input type="text" class="shadow-none mt-2 custom-text w-100" placeholder="Enter Custom Label" />
+                            </div>
+                          </div>
+                          <div class="col-6 mb-3">
+                            <div class="settings--item p-3" id="cb-time-consumed">
+                              <p class="mb-2"><label class="label">Time Consumed</label></p>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input shadow-none rearm-field" type="checkbox" id="time-consumed-1">
+                                <label class="form-check-label" for="time-consumed-1">Hide Field</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input shadow-none rearm-label" type="checkbox" id="time-consumed-2">
+                                <label class="form-check-label" for="time-consumed-2">Hide Label</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input shadow-none customization-label" type="checkbox" id="c-time-consumed">
+                                <label class="form-check-label" for="c-time-consumed">Custom Label</label>
+                              </div>
+                              <input type="text" class="shadow-none mt-2 custom-text w-100" placeholder="Enter Custom Label" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="vct-custom" role="tabpanel" aria-labelledby="vct-custom-tab"></div>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="v-coming-soon" role="tabpanel" aria-labelledby="v-coming-soon-tab"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade dark--theme" id="templateTabNav" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="templateTabNavLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div>
+            <div class="modal-header">
+              <h5 class="modal-title" id="templateTabNavLabel"><i class="fas fa-fingerprint fa-lg pe-2"></i>Templates</h5>
+              <button type="button" class="btn ms-3 text-uppercase shadow-none close-save" data-bs-dismiss="modal" aria-label="Close">Close</button>
+            </div>
+            <div class="modal-body">
+              <div class="d-flex justify-content-center">
+                <ul class="nav nav-pills mb-3" id="pills-tab-tmp" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="v-free-templates-tab" data-bs-toggle="pill" data-bs-target="#v-free-templates" type="button" role="tab" aria-controls="v-free-templates" aria-selected="false">Default Template</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="v-custom-templates-tab" data-bs-toggle="pill" data-bs-target="#v-custom-templates" type="button" role="tab" aria-controls="v-custom-templates" aria-selected="false">Custom Template</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-free-templates" role="tabpanel" aria-labelledby="v-free-templates-tab">
+                  <div class="mx-5 template-gc" id="default-template-gc">
+                    <div class="card active mb-3">
+                      <div class="card-header">Default<span>Active</span></div>
+                      <div class="card-body">
+                        <h5 class="card-title">Default & Complete Details</h5>
+                        <p class="card-text">Greetings &#8226; Message Body &#8226; Latest Updates &#8226; Updated Links &#8226; Notes &#8226; Reference Links &#8226; Time Consumed</p>
+                      </div>
+                    </div>
+                    <div class="card mb-3">
+                      <div class="card-header">Normal</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Precise</h5>
+                        <p class="card-text">Greetings &#8226; Message Body &#8226; Latest Updates &#8226; Updated Links &#8226; Time Consumed</p>
+                      </div>
+                    </div>
+                    <div class="card mb-3">
+                      <div class="card-header">Designer</div>
+                      <div class="card-body">
+                        <h5 class="card-title">Designer</h5>
+                        <p class="card-text">Greetings &#8226; Message Body &#8226; Time Consumed</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="v-custom-templates" role="tabpanel" aria-labelledby="v-custom-templates-tab">
+                  <div class="mx-5 template-gc" id="custom-template-gc">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row px-5" id="body">
+      <div class="col-md-6">
+        <div class="gcb-body shadow">
+          <!-- header -->
+          <header class="top-header">
+            <div class="px-3 py-2 text-white">
+              <div class="container-fluid px-5">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                  <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+                    <img src="assets/images/svg/gcb_logo_1.svg" alt="gc_logo" class="bi me-2" width="55" height="50" id="logo-gcb" />
+                  </a>
+                  <ul class="nav col-12 col-lg-auto pt-2 justify-content-center my-md-0 text-small text-center menus">
+                    <li>
+                      <i class="fas fa-home fa-lg"></i>
+                      <a href="#" class="nav-link pt-0">Home</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </header>
+    
+          <!-- generator / editor -->
+          <div class="container-fluid pt-4 gc-gen">
+            <section id="forms">
+              <div class="row">
+    
+                <!-- create report -->
+                <div class="col-12">
+                  <div class="text-center unhighlightsselect">
+                    <h5 class="text-uppercase title-header"><span class="p-2">Construct</span><span class="p-2">Report</span></h5>
+                  </div>
+                  <div class="gc-form mx-5 gc-scroll">
+                    <div class="mb-3 form-controller">
+                      <textarea class="form-control shadow-none" id="greeting" placeholder="Greetings"></textarea>
+                      <label class="form-label">Greetings</label>
+                    </div>
+                    <div class="mb-3 form-controller">
+                      <textarea class="form-control shadow-none" id="introduction" placeholder="Message Body"></textarea>
+                      <label class="form-label">Message Body</label>
+                    </div>
+                    <div class="mb-3 form-controller gc-dynamic-input" id="update">
+                      <textarea class="form-control shadow-none mb-1 textarea" placeholder="Latest Updates"></textarea>
+                      <label class="form-label">Latest Updates</label>
+                    </div>
+                    <div class="mb-3 form-controller" id="updated-links">
+                      <textarea class="form-control shadow-none" id="update-list" placeholder="Updated Links"></textarea>
+                      <label  class="form-label">Updated Links</label>
+                    </div>
+                    <div class="mb-3 form-controller gc-dynamic-input" id="note">
+                      <textarea class="form-control shadow-none mb-1 textarea" placeholder="Notes"></textarea>
+                      <label  class="form-label">Notes</label>
+                    </div> 
+                    <div class="mb-3 form-controller" id="reference-links">
+                      <textarea class="form-control shadow-none" id="reference-list" placeholder="Reference Links"></textarea>
+                      <label  class="form-label">Reference Links</label>
+                    </div> 
+                    <div class="mb-3 form-controller" id="time-consumed">
+                      <input type="text" placeholder="Time Consumed" class="form-control shadow-none" id="time-consumed-tt" onfocus="this.type='time'" onblur="this.type='text'">
+                      <label class="form-label">Time Consumed</label>
+                    </div>  
+                  </div>
+                </div>
+    
+              </div>
+            </section>  
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="gcb-body shadow">
+          <!-- header -->
+          <header class="top-header">
+            <div class="px-3 py-2 text-white">
+              <div class="container-fluid px-5">
+                <div class="d-flex flex-wrap align-items-end justify-content-end justify-content-lg-send">
+                  <ul class="nav col-12 col-lg-auto pt-2 justify-content-center my-md-0 text-small text-center menus">
+                    <li data-bs-toggle="modal" data-bs-target="#templateTabNav">
+                      <i class="fas fa-fingerprint fa-lg"></i>
+                      <a class="nav-link pt-0">Template</a>
+                    </li>
+                    <li data-bs-toggle="modal" data-bs-target="#settingsTabNav">
+                      <i class="fas fa-sliders-h fa-lg"></i>
+                      <a class="nav-link pt-0">Settings</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </header>
+    
+          <!-- generator / editor -->
+          <div class="container-fluid pt-4 gc-gen" id="gc-gen-report">
+            <section id="clipboard-report-gen">
+              <div class="row">
+    
+                <!-- generated report -->
+                <div class="col-12">
+                  <div class="text-center">
+                    <h5 class="text-uppercase title-header"><span class="p-2">Report</span><span class="p-2">Clipboard</span></h5>
+                  </div>
+                  <div id="clipboard" class="mx-5">
+                    <div class="copycontainer">
+                      <button class="copy-clipboard copy"><span>Copy</span></button>
+                    </div>
+                    <div class="mt-4 p-4 clipboard uneditable gc-scroll" id="clipboardToCopy">
+                      <div class="module">
+                          <p id="gcb-greeting"></p>
+                      </div>
+                      <div class="module">
+                          <p id="gcb-introduction"></p>
+                      </div>
+                      <div class="module label">
+                        <p id="gcb-updates">Here are the latest updates:</p>
+                      </div>
+                      <div class="module">
+                          <p id="gcb-update-list"></p>
+                      </div>
+                      <div class="module label">
+                          <p id="gcb-links">Updated Links:</p>
+                      </div>
+                      <div class="module">
+                          <p id="gcb-link-list"></p>
+                      </div>
+                      <div class="module label">
+                          <p id="gcb-notes">Notes:</p>
+                      </div>
+                      <div class="module">
+                          <p id="gcb-note-list"></p>
+                      </div>      
+                      <div class="module label">
+                          <p id="gcb-reference">Reference Link:</p>
+                      </div>
+                      <div class="module">
+                          <p id="gcb-reference-list"></p>
+                      </div>
+                      <div class="module label">
+                          <p id="gcb-time">Time Consumed:</p>
+                          <span id="gcb-consumed-t"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+              </div>
+            </section>  
+          </div>
+    
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>
